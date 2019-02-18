@@ -1,0 +1,25 @@
+<div class="runes-wrapper">
+  <nav>
+    <li class="branch"
+        *ngFor="let rune of runes; let i = index"
+        [ngClass]="{'active': rune.branch === activeBranch}">
+      <img (click)="selectBranch(i)" src="../../../assets/{{rune.branch}}.png" alt="{{rune.branch}}">
+    </li>
+  </nav>
+  <div class="branch-container">
+    <div class="loop-runes" *ngFor="let row of runePage.main">
+      <div class="row-flex" [ngClass]="{'flex-adjust':row.length === 4}">
+        <div  *ngFor="let rune of row">
+          <img src="../../../assets/secondary/{{rune}}.png" alt="{{rune}}" >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="loop-runes" *ngFor="let row of stats">
+    <div class="row-flex" [ngClass]="{'flex-adjust':row.length === 4}">
+      <div class="stat-circle" *ngFor="let stat of row">
+        <img src="../../../assets/stats/{{stat}}.png" alt="{stat}}" >
+      </div>
+    </div>
+  </div>
+</div>

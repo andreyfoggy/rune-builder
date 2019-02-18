@@ -1,0 +1,81 @@
+nav {
+    display: flex;
+    justify-content: center;
+    // border-bottom: 2px solid gold;
+}
+.branch-container {
+    margin-top: 30px;
+}
+.keystones-flex {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+.row-flex {
+    display: flex;
+    justify-content: space-evenly;
+    img {
+        width: 55px;
+        &:hover {
+            -webkit-filter: drop-shadow(0px 0px 8px red);filter: drop-shadow(0px 0px 8px red);
+            cursor: pointer;
+        }
+    }
+    margin-bottom: 10px;
+}
+
+li {
+    list-style-type: none;
+    &:hover:not(.active) {
+        img {
+            -webkit-filter: drop-shadow(0px 0px 8px red);filter: drop-shadow(0px 0px 8px red);
+            cursor: pointer;
+        }
+    }
+}
+
+.branch {
+    padding: 0px 7px;
+}
+
+.active {
+    img {
+        opacity: 0.55;
+    }
+}
+
+.runes-wrapper {
+    width:400px;
+    margin: auto;
+}
+
+.circle {
+    cursor: pointer;
+    width: 62px;
+    height: 62px;
+    border: 2px solid rgb(163, 162, 65);
+    border-radius: 50%;
+
+}
+.keystone-image {
+    transform: translate(-25px, -25px) scale(0.95);
+    &:hover {
+        -webkit-filter: drop-shadow(0px 0px 8px red);filter: drop-shadow(0px 0px 8px red);
+        cursor: pointer;
+    }
+}
+
+
+.branch {
+    flex-grow: 1;
+}
+
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding-bottom: 10px;
+}
