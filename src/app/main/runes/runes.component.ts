@@ -8,17 +8,33 @@ import { runes } from './../runes.constants';
 })
 export class RunesComponent implements OnInit {
   public runes = runes;
-  public runePage: any = [];
+  public runePage =  runes[0];
   public activeBranch: string;
   public hovered = -1;
+  public tree = {
+    branch: 'precision',
+    mainList: []
+  };
   constructor() { }
 
   ngOnInit() {
   }
 
-  public selectBranch(index: number) {
-    this.runePage = this.runes[index];
-    this.activeBranch = this.runePage.branch;
+  public selectBranch(type: string, index, rowIndex = 0) {
+    switch (type) {
+      case 'branch':
+        this.tree.mainList = [];
+        this.runePage = this.runes[index];
+        this.activeBranch = this.runePage.branch;
+        this.tree.branch =  this.runePage.branch;
+        break;
+      case 'keystone':
+        this.tree.mainList[0] = index;
+        break;
+      case 'casual':
+        this.tree.mainList[rowIndex + 1] = index;
+        break;
+    }
+    console.log(this.tree);
   }
-
 }

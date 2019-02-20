@@ -2,23 +2,23 @@
   <nav>
     <li class="branch"
         *ngFor="let rune of runes; let i = index"
-        [ngClass]="{'active': rune.branch === activeBranch}">
-      <img (click)="selectBranch(i)" src="../../../assets/{{rune.branch}}.png" alt="{{rune.branch}}">
+        [ngClass]="{'active': rune.branch === tree.branch}">
+      <img (click)="selectBranch('branch', i)" src="../../../assets/{{rune.branch}}.png" alt="{{rune.branch}}">
     </li>
   </nav>
   <div class="branch-container">
     <div class="keystones-flex">
       <div   *ngFor="let keystone of runePage.keystones; let i = index">
-        <div class="keystone circle" (mouseover)="hovered = i" (mouseout)="hovered = -1">
-            <img class="keystone-image"  src="../../../assets/keystone/{{keystone}}.png" alt="{{keystone}}" >
+        <div class="keystone circle" (mouseover)="hovered = i" (mouseout)="hovered = -1" [ngClass]="{'active': i === tree.mainList[0]}">
+            <img (click)="selectBranch('keystone', i)" class="keystone-image"  src="../../../assets/keystone/{{keystone}}.png" alt="{{keystone}}" >
         </div>
       </div>
     </div>
       <div class="loop-runes" *ngFor="let row of runePage.main; let index = index">
           <hr/>
         <div class="row-flex">
-          <div  *ngFor="let rune of row; let i = index">
-              <img src="../../../assets/secondary/{{row[i]}}.png" alt="{{row[i]}}" >
+          <div  *ngFor="let rune of row; let i = index" [ngClass]="{'active': i === tree.mainList[index + 1]}">
+              <img (click)="selectBranch('casual', i, index)" src="../../../assets/secondary/{{row[i]}}.png" alt="{{row[i]}}" >
           </div>
         </div>
       </div>

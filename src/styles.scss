@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+*:after, *:berore {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+body {
+	background-color: black
+}
