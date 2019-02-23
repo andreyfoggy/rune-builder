@@ -9,17 +9,33 @@ import { runes, stats } from './../runes.constants';
 export class SecondaryRunesComponent implements OnInit {
   public runes = runes;
   public stats = stats;
-  public runePage: any = [];
-  public activeBranch: string;
+  public runePage =  runes[1];
+  public activeBranch = 'domination';
   public hovered = -1;
+  public tree = {
+    secondary: 'domination',
+    secondaryList: []
+  };
   constructor() { }
 
   ngOnInit() {
   }
 
-  public selectBranch(index: number) {
-    this.runePage = this.runes[index];
-    this.activeBranch = this.runePage.branch;
+  public selectBranch(type: string, index: number, rowIndex: number) {
+    switch (type) {
+      case 'branch':
+        this.tree.secondaryList = [];
+        this.runePage = this.runes[index];
+        this.activeBranch = this.runePage.branch;
+        this.tree.secondary =  this.runePage.branch;
+        break;
+      case 'casual':
+        this.tree.secondaryList[rowIndex] = index;
+        break;
+        case 'stats':
+        this.tree.secondaryList[rowIndex + 3] = index;
+        break;
+    }
   }
 
 }

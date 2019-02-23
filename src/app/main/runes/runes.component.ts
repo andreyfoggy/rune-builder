@@ -35,6 +35,5 @@ export class RunesComponent implements OnInit {
         this.tree.mainList[rowIndex + 1] = index;
         break;
     }
-    console.log(this.tree);
   }
 }
