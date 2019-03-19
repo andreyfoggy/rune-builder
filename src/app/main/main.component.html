@@ -1,11 +1,22 @@
 <div class="main-wrapper">
     <h2>BEST TEEMO RUNES FOR TWITCH VIEWERS</h2>
+    <button (click)="editable()" class="btn-edit-mode">EDIT</button>
     <div class="flex-runes-container">
-        <app-runes></app-runes>
-        <app-secondary-runes></app-secondary-runes>
+        <app-runes [ngClass]="edit ? 'edit-runes': ''"></app-runes>
+        <app-secondary-runes [ngClass]="edit ? 'edit-runes': ''"></app-secondary-runes>
     </div>
-    <section>
-        <h3>COMMENT</h3>
-        <p>I personally prefer to take electrocute but anyways you guys might want to take aery as a keystone</p>
-    </section>
+    <div class="comment-divider"></div>
+    <div class="description">
+        <div *ngIf="edit; else view" class="buttons">
+            <input type="text">
+            <button class="btn-save">save</button>
+            <button class="btn-delete">cancel</button>
+        </div>
+    </div>
 </div>
+<ng-template #view>
+    <div class="comment-view">
+        <h3>COMMENT ON RUNES CHOICE</h3>
+        <p>I personally prefer to take electrocute but anyways you guys might want to take aery as a keystone</p>
+    </div>    
+</ng-template>

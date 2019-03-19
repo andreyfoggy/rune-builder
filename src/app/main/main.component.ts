@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.less']
 })
 export class MainComponent implements OnInit {
+  public edit = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  public editable() {
+    this.edit = !this.edit;
+  }
 }

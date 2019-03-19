@@ -6,7 +6,6 @@ import { CoreModule } from './core/core.module';
 import { MainComponent } from './main/main.component';
 import { RunesComponent } from './main/runes/runes.component';
 import { SecondaryRunesComponent } from './main/secondary-runes/secondary-runes.component';
-
 @NgModule({
   declarations: [
     AppComponent,
