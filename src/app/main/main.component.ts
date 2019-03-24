@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Select } from '@ngxs/store';
 
 @Component({
   selector: 'app-main',
@@ -6,14 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.less']
 })
 export class MainComponent implements OnInit {
-  public edit = false;
-
+  public editRunes = false;
+  public editComment = false;
+  public inputValue: string;
+  public textValue: string;
+  @Select(state => state.runes) test;
   constructor() { }
 
   ngOnInit() {
+    this.test.subscribe(res => {
+      console.log(res);
+    });
   }
 
-  public editable() {
-    this.edit = !this.edit;
+  public editable(flagToChange) {
+    this[flagToChange] = !this[flagToChange];
+  }
+
+  public saveText() {
+    this.editComment = false;
+    this.textValue = this.inputValue;
   }
 }

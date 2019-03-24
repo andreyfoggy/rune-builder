@@ -6,6 +6,8 @@ import { CoreModule } from './core/core.module';
 import { MainComponent } from './main/main.component';
 import { RunesComponent } from './main/runes/runes.component';
 import { SecondaryRunesComponent } from './main/secondary-runes/secondary-runes.component';
+import { FormsModule } from '@angular/forms';
+import { ZooState } from './main/store/runes.store';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,8 +17,9 @@ import { SecondaryRunesComponent } from './main/secondary-runes/secondary-runes.
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     CoreModule,
-    NgxsModule.forRoot([])
+    NgxsModule.forRoot([ZooState])
   ],
   providers: [],
   bootstrap: [AppComponent]

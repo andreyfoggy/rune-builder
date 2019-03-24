@@ -1,6 +1,4 @@
-.main-wrapper {
-    min-height: 700px;
-}
+
 h2 {
     padding: 10px;
     margin-bottom: 15px;
@@ -13,18 +11,21 @@ h3 {
     
 }
 .description {
-    background-color: #322a62;
+    background-color:white;
+    padding: 20px 0;
+    h3 {
+        text-align: center;
+        padding-bottom: 5px;
+        color: black;
+       }
 }
 .comment-view {
    padding: 10px 0;
    max-width: 800px;
    margin: auto;
-   h3 {
-    text-align: center;
-    padding-bottom: 5px;
-   }
    p {
        border: 4px dotted rgb(123, 165, 175);
+       color: black;
        padding: 10px;
    }
 }
@@ -60,18 +61,12 @@ app-runes, app-secondary-runes {
         background-color: rgb(156, 143, 24);
         color: whitesmoke;
         border:none;
-        
+        outline: none;
         font-size: 18px;
         font-family: 'Mukta', sans-serif;
     }
 }
-.btn-save {
-    margin-right: 20px;
-}
 
-.btn-delete {
-    
-}
 
 .btn-edit-mode {
     padding: 5px;
@@ -86,4 +81,25 @@ input {
     width: 80%;
     margin: 0 10%;
     margin-top: 10px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgb(117, 116, 116);
+    padding: 2px 4px;
+    height: 28px;
+    font-size: 16px;
+}
+.comment-buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 9.5%;
+    margin-top: 6px;
+   .btn-save {
+       margin-right: 5px;
+       background-color: blue;
+   }
+   .btn-delete {
+       background-color: transparent;
+       color: black;
+       margin-right: 7px;
+   }
 }

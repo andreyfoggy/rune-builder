@@ -12,7 +12,7 @@
       <div class="row-flex" [ngClass]="{'flex-adjust':row.length === 4}">
         <div  *ngFor="let rune of row; let index = index">
           <img (click)="selectBranch('casual', index, rowIndex)" src="../../../assets/secondary/{{rune}}.png"
-               [ngStyle]="{'filter': tree.secondaryList[rowIndex]  !== undefined &&  index !== tree.secondaryList[rowIndex] ? 'grayscale(100%)' : '' }"
+               [ngClass]="index !== tree.secondaryList[rowIndex] ? 'rune-faded' : ''"
                alt="{{rune}}" >
         </div>
       </div>
@@ -21,7 +21,7 @@
   <div class="loop-runes" *ngFor="let row of stats; let rowIndex = index">
     <div class="row-flex" [ngClass]="{'flex-adjust':row.length === 4}">
       <div class="stat-circle" (click)="selectBranch('stats', index, rowIndex)" *ngFor="let stat of row; let index = index">
-        <img  [ngStyle]="{'filter': tree.secondaryList[rowIndex + 3]  !== undefined &&  index !== tree.secondaryList[rowIndex + 3] ? 'grayscale(100%)' : '' }"
+        <img  [ngClass]="tree.secondaryList[rowIndex + 3]  !== undefined &&  index !== tree.secondaryList[rowIndex + 3]? 'rune-faded rune-faded-extra': '' "
                src="../../../assets/stats/{{stat}}.png" alt="{stat}}" >
       </div>
     </div>

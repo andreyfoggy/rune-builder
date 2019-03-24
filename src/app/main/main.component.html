@@ -1,22 +1,25 @@
-<div class="main-wrapper">
+<div>
     <h2>BEST TEEMO RUNES FOR TWITCH VIEWERS</h2>
-    <button (click)="editable()" class="btn-edit-mode">EDIT</button>
+    <button (click)="editable('editRunes')" class="btn-edit-mode">EDIT</button>
     <div class="flex-runes-container">
-        <app-runes [ngClass]="edit ? 'edit-runes': ''"></app-runes>
-        <app-secondary-runes [ngClass]="edit ? 'edit-runes': ''"></app-secondary-runes>
+        <app-runes [ngClass]="editRunes ? 'edit-runes': ''"></app-runes>
+        <app-secondary-runes [ngClass]="editRunes ? 'edit-runes': ''"></app-secondary-runes>
     </div>
     <div class="comment-divider"></div>
+    <button *ngIf="!editComment" (click)="editable('editComment')" class="btn-edit-mode">EDIT</button>
     <div class="description">
-        <div *ngIf="edit; else view" class="buttons">
-            <input type="text">
-            <button class="btn-save">save</button>
-            <button class="btn-delete">cancel</button>
+            <h3>COMMENT ON RUNES CHOICE</h3>
+        <div *ngIf="editComment; else view" class="buttons">
+            <input type="text" [(ngModel)]="inputValue" placeholder="Add a comment...">
+            <div class="comment-buttons">
+                <button (click)="saveText()" class="btn-save">comment</button>
+                <button (click)="editable('editComment')" class="btn-delete">cancel</button>
+            </div>
         </div>
     </div>
 </div>
 <ng-template #view>
     <div class="comment-view">
-        <h3>COMMENT ON RUNES CHOICE</h3>
-        <p>I personally prefer to take electrocute but anyways you guys might want to take aery as a keystone</p>
+        <p>{{textValue}}</p>
     </div>    
 </ng-template>

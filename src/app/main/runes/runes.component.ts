@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { runes } from './../runes.constants';
+import { Store } from '@ngxs/store';
+import { SaveRunes } from '../store/runes.store';
 
 @Component({
   selector: 'app-runes',
@@ -15,7 +17,7 @@ export class RunesComponent implements OnInit {
     branch: 'precision',
     mainList: []
   };
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit() {
   }
@@ -35,5 +37,6 @@ export class RunesComponent implements OnInit {
         this.tree.mainList[rowIndex + 1] = index;
         break;
     }
+    this.store.dispatch(new SaveRunes(this.tree));
   }
 }

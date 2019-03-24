@@ -24,8 +24,8 @@ export interface RunesStateModel {
 export class ZooState {
   @Action(SaveRunes)
   SaveRunes(ctx: StateContext<RunesStateModel>, action: SaveRunes) {
-
-    ctx.setState({
+    console.log(action)
+    ctx.patchState({
       ...action.runes
     });
   }

@@ -9,11 +9,11 @@
   <div class="branch-container">
     <div class="keystones-flex">
       <div   *ngFor="let keystone of runePage.keystones; let i = index">
-        <div class="keystone circle" (mouseover)="hovered = i" (mouseout)="hovered = -1">
+        <div [ngClass]="tree.mainList[0]  !== undefined &&  i !== tree.mainList[0]? 'rune-faded' : ''" 
+             class="keystone circle" (mouseover)="hovered = i" (mouseout)="hovered = -1">
             <img (click)="selectBranch('keystone', i)" 
                  class="keystone-image"  
                  src="../../../assets/keystone/{{keystone}}.png" 
-                 [ngStyle]="{'filter': tree.mainList[0]  !== undefined &&  i !== tree.mainList[0] ? 'grayscale(100%)' : '' }"
                  alt="{{keystone}}" >
         </div>
       </div>
@@ -22,10 +22,11 @@
           <hr/>
         <div class="row-flex">
           <div  *ngFor="let rune of row; let i = index">
-              <img (click)="selectBranch('casual', i, index)"
-                   src="../../../assets/secondary/{{row[i]}}.png"
-                   [ngStyle]="{'filter': tree.mainList[index + 1] !== undefined && i !== tree.mainList[index + 1] ? 'grayscale(100%)' : '' }"
+            <button (click)="selectBranch('casual', i, index)">
+              <img src="../../../assets/secondary/{{row[i]}}.png"
+                   [ngClass]="tree.mainList[index + 1] !== undefined && i !== tree.mainList[index + 1]? 'rune-faded' : ''"
                     alt="{{row[i]}}" >
+            </button>        
           </div>
         </div>
       </div>
